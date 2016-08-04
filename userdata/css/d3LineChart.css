@@ -1,0 +1,134 @@
+body
+{
+    padding:0;
+    width:980px;
+    height:600px;
+    overflow:hidden;		
+	margin:0;
+}
+
+.nodata
+{
+	color:gray;	
+}
+
+.transparent_canvas
+{
+	background-color:transparent;
+	fill:none;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.x.axis line {
+  stroke: #fff;
+}
+
+.x.axis .minor {
+  stroke-opacity: .5;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.y.axis line,
+.y.axis path {
+  fill: none;
+  stroke: #777;
+}
+
+@media (min-width: 1080px)
+{
+    .data-line {
+        stroke: #fd7866;
+        stroke-width: 2;
+        fill: none;
+        stroke-dasharray: 0;
+    }
+    
+    path {
+        stroke: #fd7866;
+        stroke-width: 2;
+        stroke-dasharray: 0;
+        fill: none;
+    }
+    
+    .area {
+        fill: #ffd8cf;
+    }
+    
+    text {
+        font-family: Arial;
+        font-size: 11pt;
+        fill: #555;
+    }
+    
+    line {
+        stroke: #CDCDCD;
+        stroke-width: 0.5;
+        /* stroke-dasharray: 3 3; */
+        fill: none;
+    }
+    
+    .data-point {
+        stroke: #fd7866;
+        stroke-width: 2;
+        fill: #FFF;
+    }
+    #chart {
+        margin: 0;
+    }
+
+}
+
+@media (max-width: 1079px)
+{
+    .data-line {
+        stroke: #fd7866;
+        stroke-width: 2;
+        fill: none;
+        stroke-dasharray: 0;
+    }
+    
+     path {
+        stroke: #fd7866;
+        stroke-width: 3;
+        stroke-dasharray: 0;
+        fill: none;
+    }
+
+    
+    .area {
+        fill: #ffd8cf;
+    }
+    
+    text {
+        font-family: Arial;
+        font-size: 22pt;
+        fill: #555;
+    }
+    
+    line {
+        stroke: #CDCDCD;
+        stroke-width: 2;
+        /* stroke-dasharray: 3 3; */
+        fill: none;
+    }
+    
+    .data-point {
+    	width:8px;
+    	height:8px;
+        stroke: #fd7866;
+        stroke-width: 3;
+        fill: #FFF;
+    }
+    
+    #chart {
+        margin: 0;
+    }
+    
+}
+
