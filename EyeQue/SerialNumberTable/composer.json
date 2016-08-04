@@ -1,0 +1,10 @@
+{
+  "name": "EyeQue/SerialNumberTable",
+  "description": "EyeQue custom module to add Serial number table to database. Version:0.0.2",
+  "autoload": {
+    "psr-4": {
+      "psr-4": { "EyeQue\\SerialNumberTable\\": "" },
+      "files": [ "registration.php" ]
+    }
+  }
+}

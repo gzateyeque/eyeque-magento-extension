@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright 2016 EyeQue. All rights reserved.
+ * Yuan Xiong
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+    <preference for="EyeQue\EyeCloudAccess\Api\Data\TestsInterface"
+                type="EyeQue\EyeCloudAccess\Model\Data\Tests" />
+    <preference for="EyeQue\EyeCloudAccess\Api\Data\MeasureInterface"
+                type="EyeQue\EyeCloudAccess\Model\Data\Measure" />
+
+    <preference for="EyeQue\EyeCloudAccess\Api\Data\ResultInterface"
+                type="EyeQue\EyeCloudAccess\Model\Data\Result" />
+    <preference for="EyeQue\EyeCloudAccess\Api\Data\DeviceInterface"
+                type="EyeQue\EyeCloudAccess\Model\Data\Device" />
+
+    <preference for="EyeQue\EyeCloudAccess\Api\EyeCloudAccessInterface"
+                type="EyeQue\EyeCloudAccess\Model\EyeCloudAccess" />
+
+</config>

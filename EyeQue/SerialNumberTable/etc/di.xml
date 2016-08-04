@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright 2016 EyeQue. All rights reserved.
+ * Yuan Xiong
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+    <preference for="EyeQue\SerialNumberTable\Api\SerialNumberInterface"
+                type="EyeQue\SerialNumberTable\Model\SNCheck"/>
+    <preference for="EyeQue\SerialNumberTable\Api\Data\ReturnObjectInterface"
+                type="EyeQue\SerialNumberTable\Model\ReturnObject" />
+
+</config>

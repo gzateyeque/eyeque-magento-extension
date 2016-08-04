@@ -1,0 +1,10 @@
+{
+  "name": "EyeQue/FreeTrial",
+  "description": "EyeQue custom module to add User Free Trial.",
+  "autoload": {
+    "psr-4": {
+      "psr-4": { "EyeQue\\FreeTrial\\": "" },
+      "files": [ "registration.php" ]
+    }
+  }
+}

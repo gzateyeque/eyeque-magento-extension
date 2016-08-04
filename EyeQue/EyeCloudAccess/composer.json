@@ -1,0 +1,10 @@
+{
+  "name": "EyeQue/EyeCloudAccess",
+  "description": "EyeQue custom module to access eyecloud.",
+  "autoload": {
+    "psr-4": {
+      "psr-4": { "EyeQue\\EyeCloudAccess\\": "" },
+      "files": [ "registration.php" ]
+    }
+  }
+}

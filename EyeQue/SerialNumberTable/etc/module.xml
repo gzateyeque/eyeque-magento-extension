@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author	Yuan
+ * @category    EyeQue
+ * @package     EyeQue_SerialNumberTable
+ */
+-->
+<config  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Module/etc/module.xsd">
+   <module name="EyeQue_SerialNumberTable"  setup_version="0.0.2" active="true">
+  
+   </module>
+</config> 

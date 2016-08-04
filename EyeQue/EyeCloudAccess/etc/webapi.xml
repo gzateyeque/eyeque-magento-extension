@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright 2016 EyeQue. All rights reserved.
+ * Given the social media type and social id, get the customer id
+ * Yuan Xiong
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
+
+    <route url="/eyecloud/api/V2/tests" method="POST">
+        <service class="EyeQue\EyeCloudAccess\Api\EyeCloudAccessInterface" method="tests"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/eyecloud/api/V2/devices" method="POST">
+        <service class="EyeQue\EyeCloudAccess\Api\EyeCloudAccessInterface" method="devices"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+    <route url="/eyecloud/api/V2/results" method="POST">
+        <service class="EyeQue\EyeCloudAccess\Api\EyeCloudAccessInterface" method="results"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/eyecloud/api/V2/getrecord" method="POST">
+        <service class="EyeQue\EyeCloudAccess\Api\EyeCloudAccessInterface" method="getrecord"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/eyecloud/api/V2/getprofile" method="POST">
+        <service class="EyeQue\EyeCloudAccess\Api\EyeCloudAccessInterface" method="getprofile"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/eyecloud/api/V2/refreshall" method="POST">
+        <service class="EyeQue\EyeCloudAccess\Api\EyeCloudAccessInterface" method="refreshall"/>
+       <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+</routes>

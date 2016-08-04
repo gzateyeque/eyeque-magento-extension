@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright 2016 EyeQue. All rights reserved.
+ * Given the social media type and social id, get the customer id
+ * Yuan Xiong
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
+
+    <route url="/V1/socialcustomers/validate" method="POST">
+        <service class="EyeQue\SocialAccessToken\Api\SocialAccessTokenInterface" method="validate"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/socialcustomers/validateToken" method="POST">
+        <service class="EyeQue\SocialAccessToken\Api\SocialAccessTokenInterface" method="validateToken"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/socialcustomers/getCustomerEmail" method="POST">
+        <service class="EyeQue\SocialAccessToken\Api\SocialAccessTokenInterface" method="getCustomerEmail"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/socialcustomers" method="POST">
+        <service class="EyeQue\SocialAccessToken\Api\SocialAccountInterface" method="createAccount"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+</routes>

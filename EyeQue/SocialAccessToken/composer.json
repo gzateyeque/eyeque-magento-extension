@@ -1,0 +1,10 @@
+{
+  "name": "EyeQue/SocialAccessToken",
+  "description": "EyeQue custom module to request token using social login ID.",
+  "autoload": {
+    "psr-4": {
+      "psr-4": { "EyeQue\\SociallAccessToken\\": "" },
+      "files": [ "registration.php" ]
+    }
+  }
+}

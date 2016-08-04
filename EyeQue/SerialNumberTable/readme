@@ -1,0 +1,15 @@
+﻿Create serial number table for customer model.
+Followed steps : 
+Create table: http://www.mage-world.com/blog/create-a-module-with-custom-database-table-in-magento-2.html
+
+CRUD stands for Create, Read, Update, and Delete
+Commandline tools for Create crud database(Use their factory): http://alanstorm.com/magento_2_crud_models_for_database_access
+
+Create crud manually
+(from Step 2, according to their last post, with database loaded from Mysql Workbench, factory introduction missing, code error during compile: replace Resourse was ResourseModel in Resource php files, Resource/SerialNumber.php and Resource/SerialNumber/Collection.php ): 
+http://www.mage-world.com/blog/how-to-use-model-and-collection-in-magento-2.html
+
+Filter collection(Magento 1.x):http://devdocs.magento.com/guides/m1x/magefordev/mage-for-dev-8.html 
+
+Parameter: sn is a string of the device device serial number
+Return type: Return Object is an object with return_code = 0 or 1

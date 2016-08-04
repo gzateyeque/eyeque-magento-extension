@@ -1,0 +1,10 @@
+{
+  "name": "EyeQue/CustomerAttribute",
+  "description": "EyeQue custom module to add Customer Attributes.",
+  "autoload": {
+    "psr-4": {
+      "psr-4": { "EyeQue\\CustomerAttribute\\": "" },
+      "files": [ "registration.php" ]
+    }
+  }
+}
