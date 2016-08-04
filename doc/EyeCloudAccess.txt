@@ -1,0 +1,105 @@
+Document version 0.8.2
+Date July 21,2016
+
+Installation:
+1. unzip the plugin and copy to 
+[Magento_Root]/app/code/EyeQue
+
+2. Compilation:
+sudo php [Magento_Root]/bin/magento setup:di:compile
+sudo php [Magento_Root]/bin/magento setup:upgrade
+
+3. Grant writeable permission to [magento_root]/var
+
+4. configuration:
+Open and edit the server ip address constants in:
+[magento_root]/app/code/EyeQue/EyeCloudAccess/EyeCloudConstants.php
+
+The default configuration is:
+
+const EYECLOUD_SERVER = 'http://192.168.110.85:8080';
+// The eyecloud ip address
+
+const DOCUMENT_API_PHP = 'http://192.168.110.151:8988/documentControl.php';
+// The private document api server, should be only accessable from magento
+
+const DOCUMENT_USER_PROFILE = 'http://192.168.110.151:8987/index.html';
+
+//The public document user profile server, allow visiting from all
+
+(1)You can change the Eyecloud ip address from local to Amazon cloud once it is ready.
+(2)You can change the document server ip address and access route, but there is some limit, I will show them below
+(3) Be careful when you can change the hash padding string, because it  is used as a salt while generating user profile. Once you did, you have to regenerate the entire user profile data because of remapping of user id to hash with salt. Use the "refreshall" api. See documents for more details.
+(4)Do not change other constants.
+
+5. Apache configuration for profile server
+The profile server and profile api should be deployed physically on the same server, because the api searches the relative folder "users" under the api root. However, the api should be only accessible from Magento, and the "users" can be visit by all from public. To implement this, you can use the Apache access control to simply deny all connections but allow only from magento server for the api server, and allow all for the public profile server.
+
+Here is my example on the local virtual machine.
+
+Full path:
+
+/var/www/document
+
+document/
+├── documentControl.php
+└── users
+    ├── css
+    │   └── d3LineChart.css
+    ├── data
+    │   ├── 57030e8c8b8de6cb6c302dbd423e1126f68c63d6
+    │   │   └── results.csv
+    │   ├── 94396aad10f2b42aeedcca5a2873ccfbbd60ba1b
+    │   │   └── results.csv
+    │   └── c81297be53507bcec3a78b0fd8a374cfd5dfc299
+    │       └── results.csv
+    ├── index.html
+    └── js
+        ├── d3LineChart.js
+        └── jquery.doubletap.js
+
+To configure:
+cd /etc/apache2/sites-available
+
+create a "eyequedocument.conf" file like below. Allow access by only chosen servers, like your magento server or local debug server, and deny others.
+
+Listen 8988
+<VirtualHost *:8988 >
+    ServerName document.eyequehome.com
+    DocumentRoot "/var/www/document/"
+    <Directory "/var/www/document/">
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride None
+    order deny,allow
+    deny from all
+    allow from 192.168.110.151 192.168.110.71
+    </Directory>
+</VirtualHost>
+
+create another "eyequeuser.conf" file like below. allow from all to make it a public site. "Options FollowSymLinks"  WITHOUT "Indexes" so that user can not visit others' profile but only the index.html which requires a certain user hash.
+
+Listen 8987
+<VirtualHost *:8987 >
+    ServerName users.document.eyequehome.com
+    DocumentRoot "/var/www/document/users/"
+    <Directory "/var/www/document/users">
+    Options FollowSymLinks
+    AllowOverride None
+           allow from all
+    </Directory>
+</VirtualHost>
+
+Make them available by running:
+
+sudo a2ensite eyequedocument
+sudo a2ensite eyequeuser
+service apache2 reload
+
+6. Generate all users' data through the Magento api "refreshall".
+See document for more details.
+curl example, replace the ip with your magento server ip address, user your admin username and password for access:
+
+curl -X POST "http://192.168.110.151/index.php/rest/eyecloud/api/V2/refreshall"      -H 'Content-Type:application/json' -d '{"username":"admin_username","password":"admin_password"}'
+
+
+
