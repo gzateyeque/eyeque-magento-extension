@@ -1,0 +1,12 @@
+echo "# zoo" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/gzateyeque/eyeque-magento-extension.git
+git push -u origin master
+
+Add new file or folder
+======================
+git add file directory/*
+git commit -m "first commit"
+git push -u origin master
